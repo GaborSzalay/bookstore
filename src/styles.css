@@ -1,0 +1,14 @@
+html {
+	background-image: url(assets/bookstore-background.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	background-position: center;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+	opacity: 0.4;
+    background-color: white;
+}
