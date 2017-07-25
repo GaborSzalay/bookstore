@@ -8,10 +8,12 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { SearchComponent } from './search.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        SearchComponent
     ],
     imports: [
         BrowserModule,
