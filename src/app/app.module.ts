@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
@@ -20,6 +20,7 @@ import { SearchComponent } from './search.component';
         HttpModule,
         JsonpModule,
         FormsModule,
+        ReactiveFormsModule,
         MaterialModule,
         BrowserAnimationsModule
     ],
