@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { AppComponent } from './app-component/app.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +18,8 @@ import { AppComponent } from './app-component/app.component';
         HttpModule,
         JsonpModule,
         FormsModule,
-        MaterialModule
+        MaterialModule,
+        BrowserAnimationsModule
     ],
     bootstrap: [AppComponent]
 })
