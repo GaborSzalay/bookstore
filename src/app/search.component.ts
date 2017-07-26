@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
 import { BookService } from './book.service';
+import { BookCard } from './book.card';
 
 @Component({
     selector: 'app-search',
@@ -10,12 +12,19 @@ import { BookService } from './book.service';
 })
 export class SearchComponent {
     searchControl: FormControl;
+    @Output() searchOutput;
 
     constructor(private bookService: BookService) {
         this.searchControl = new FormControl();
-        this.searchControl.valueChanges.subscribe((searchInput: string) => {
-            this.bookService.searchBooks(searchInput).subscribe( response  => { console.log(response) });
-        });
+        this.searchControl.valueChanges.subscribe(this.handleSearchInputChange.bind(this));
+        this.searchOutput = new EventEmitter<BookCard[]>();
     }
 
+    private handleSearchInputChange(searchInput: string): void {
+        this.bookService.searchBooks(searchInput).subscribe(this.notifyBookSearchSubscribers.bind(this));
+    }
+
+    private notifyBookSearchSubscribers(bookCards: BookCard[]): void {
+        this.searchOutput.emit(bookCards);
+    }
 }

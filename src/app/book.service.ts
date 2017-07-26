@@ -22,13 +22,13 @@ export class BookService implements OnInit {
             });
     }
 
-    getGoogleBooksUrl(searchInput: string): string {
+    private getGoogleBooksUrl(searchInput: string): string {
         const booksApiKey: string = "AIzaSyCJ2JGaSCgLqiOfaLJW8ul6oVmXc3WTcjw";
         const encodedSearchInput: string = encodeURI(searchInput);
         return `https://www.googleapis.com/books/v1/volumes?q=${encodedSearchInput}&startIndex=0&maxResults=10&key=${booksApiKey}`;
     }
 
-    createBookCard(item: any): BookCard {
+    private createBookCard(item: any): BookCard {
         const bookCard = new BookCard();
 
         bookCard.id = item.id;

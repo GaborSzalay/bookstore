@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+
+import { BookCard } from './book.card';
 
 @Component({
     selector: 'app-book-list',
     templateUrl: './book.list.component.html',
     styleUrls: ['./book.list.component.scss']
 })
-export class BookListComponent {
-
+export class BookListComponent implements OnChanges {
+    @Input() bookCards: BookCard[];
+    
+    ngOnChanges(bookCards) {
+        this.bookCards;
+        console.log(this.bookCards);
+    }
 }
