@@ -18,7 +18,9 @@ export class BookService implements OnInit {
     searchBooks(searchInput: string): Observable<BookCard[]> {
         return this.http.get(this.getGoogleBooksUrl(searchInput))
             .map((res: Response) => {
-                return res.json().items.map(this.createBookCard);
+                const responseObject: any = res.json();
+
+                return responseObject.totalItems ? res.json().items.map(this.createBookCard) : [];
             });
     }
 
