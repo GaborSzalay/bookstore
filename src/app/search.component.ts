@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { BookService } from './book-service';
+import { BookService } from './book.service';
 
 @Component({
     selector: 'app-search',

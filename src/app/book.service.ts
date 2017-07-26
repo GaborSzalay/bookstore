@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { BookCard } from './book-card';
+import { BookCard } from './book.card';
 
 @Injectable()
 export class BookService implements OnInit {
