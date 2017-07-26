@@ -8,21 +8,24 @@ import { BookCard } from './book-card';
 
 @Injectable()
 export class BookService implements OnInit {
-    googleApiUrl: string;
 
-    constructor(private http: Http) {
-        this.googleApiUrl = "https://www.googleapis.com/books/v1/volumes?q=harry%20potter&startIndex=0&maxResults=10&key=AIzaSyCJ2JGaSCgLqiOfaLJW8ul6oVmXc3WTcjw";
-    }
+    constructor(private http: Http) {}
 
     ngOnInit(): void {
 
     }
 
     searchBooks(searchInput: string): Observable<BookCard[]> {
-        return this.http.get(this.googleApiUrl)
+        return this.http.get(this.getGoogleBooksUrl(searchInput))
             .map((res: Response) => {
                 return res.json().items.map(this.createBookCard);
             });
+    }
+
+    getGoogleBooksUrl(searchInput: string): string {
+        const booksApiKey: string = "AIzaSyCJ2JGaSCgLqiOfaLJW8ul6oVmXc3WTcjw";
+        const encodedSearchInput: string = encodeURI(searchInput);
+        return `https://www.googleapis.com/books/v1/volumes?q=${encodedSearchInput}&startIndex=0&maxResults=10&key=${booksApiKey}`;
     }
 
     createBookCard(item: any): BookCard {
@@ -33,7 +36,10 @@ export class BookService implements OnInit {
         bookCard.title = item.volumeInfo.title;
         bookCard.subtitle = item.volumeInfo.subtitle;
         bookCard.authors = item.volumeInfo.authors;
-        bookCard.thumbnail = item.volumeInfo.imageLinks.smallThumbnail;
+
+        if (item.volumeInfo.imageLinks) {
+            bookCard.thumbnail = item.volumeInfo.imageLinks.smallThumbnail;
+        }
         return bookCard;
     }
 
