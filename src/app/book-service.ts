@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+import { BookCard } from './book-card';
 
 @Injectable()
 export class BookService implements OnInit {
@@ -17,12 +18,23 @@ export class BookService implements OnInit {
 
     }
 
-    searchBooks(): Observable<any> {
+    searchBooks(searchInput: string): Observable<BookCard[]> {
         return this.http.get(this.googleApiUrl)
             .map((res: Response) => {
-                console.log('sent');
-                return res.json();
+                return res.json().items.map(this.createBookCard);
             });
+    }
+
+    createBookCard(item: any): BookCard {
+        const bookCard = new BookCard();
+
+        bookCard.id = item.id;
+        bookCard.selfLink = item.selfLink;
+        bookCard.title = item.volumeInfo.title;
+        bookCard.subtitle = item.volumeInfo.subtitle;
+        bookCard.authors = item.volumeInfo.authors;
+        bookCard.thumbnail = item.volumeInfo.imageLinks.smallThumbnail;
+        return bookCard;
     }
 
 }

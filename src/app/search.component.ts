@@ -13,9 +13,8 @@ export class SearchComponent {
 
     constructor(private bookService: BookService) {
         this.searchControl = new FormControl();
-        this.searchControl.valueChanges.subscribe((value) => {
-            console.log('changed: ' + value)
-            this.bookService.searchBooks().subscribe( response  => { console.log(response) });
+        this.searchControl.valueChanges.subscribe((searchInput: string) => {
+            this.bookService.searchBooks(searchInput).subscribe( response  => { console.log(response) });
         });
     }
 
