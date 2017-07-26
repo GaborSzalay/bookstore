@@ -12,6 +12,5 @@ export class BookListComponent implements OnChanges {
     
     ngOnChanges(bookCards) {
         this.bookCards;
-        console.log(this.bookCards);
     }
 }
