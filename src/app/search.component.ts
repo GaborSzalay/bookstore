@@ -21,7 +21,11 @@ export class SearchComponent {
     }
 
     private handleSearchInputChange(searchInput: string): void {
-        this.bookService.searchBooks(searchInput).subscribe(this.notifyBookSearchSubscribers.bind(this));
+        if (searchInput.length > 0) {
+            this.bookService.searchBooks(searchInput).subscribe(this.notifyBookSearchSubscribers.bind(this));
+        } else {
+            this.notifyBookSearchSubscribers.call(this, []);
+        }
     }
 
     private notifyBookSearchSubscribers(bookCards: BookCard[]): void {
