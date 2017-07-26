@@ -1,6 +1,11 @@
 <ul class="book-cards">
-  <li *ngFor="let book of bookCards">
-    <span>{{book.title}}</span>
-    <span>{{book.subtitle}}</span>
-  </li>
+    <li *ngFor="let book of bookCards">
+        <div class="thumbnail">
+            <img *ngIf="book.thumbnail" src="{{book.thumbnail}}" alt="{{book.title}}">
+            <div class="caption">
+                <a href="{{book.selfLink}}">{{book.title}}</a>
+                <p>{{book.subtitle}}</p>
+            </div>
+        </div>
+    </li>
 </ul>
