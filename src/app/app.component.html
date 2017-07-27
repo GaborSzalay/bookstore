@@ -5,4 +5,10 @@
     <div class="col-md-10 col-md-offset-1">
         <app-book-list [bookCards]="bookCards"></app-book-list>
     </div>
+
+    <nav>
+        <a routerLink="/" routerLinkActive="active">Home</a>
+        <a routerLink="/detail/5" routerLinkActive="active">Book Detail</a>
+    </nav>
+    <router-outlet></router-outlet>    
 </div>

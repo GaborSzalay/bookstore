@@ -7,14 +7,31 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search.component';
 import { BookListComponent } from './book.list.component';
+import { BookDetailComponent } from './book.detail.component';
 
+const appRoutes: Routes = [
+  {
+    path: 'detail/:id',
+    component: BookDetailComponent,
+    data: { id: 'id' }
+  },
+  {
+    path: '',
+    component: BookListComponent
+  }
+];
 @NgModule({
     declarations: [
         AppComponent,
         SearchComponent,
-        BookListComponent
+        BookListComponent,
+        BookDetailComponent
     ],
     imports: [
+        RouterModule.forRoot(
+            appRoutes,
+            { enableTracing: true }
+        ),
         BrowserModule,
         HttpModule,
         JsonpModule,
