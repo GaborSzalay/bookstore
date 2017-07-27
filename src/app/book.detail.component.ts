@@ -15,7 +15,7 @@ export class BookDetailComponent {
     private sub: any;
     private bookDetail: BookDetail;
 
-    constructor(private route: ActivatedRoute, private bookService: BookService, private cookieService:CookieService) { }
+    constructor(private route: ActivatedRoute, private bookService: BookService, private cookieService: CookieService) { }
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(this.fetchBook.bind(this));
@@ -29,5 +29,9 @@ export class BookDetailComponent {
         this.bookService.getBook(params['id']).subscribe( bookDetail => {
             this.bookDetail = bookDetail;
         });
+    }
+
+    private addToCart(id: string): void {
+        this.cookieService.put('shoppingCart', id);
     }
 }

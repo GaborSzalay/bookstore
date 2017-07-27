@@ -5,7 +5,7 @@
                 <img *ngIf="book.thumbnail" src="{{book.thumbnail}}" alt="{{book.title}}">
             </div>
             <div class="caption">
-                <a routerLink="/detail/{{book.id}}" routerLinkActive="active">{{book.title}}</a>
+                <a routerLink="/detail/{{book.id}}">{{book.title}}</a>
                 <p>{{book.subtitle}}</p>
             </div>
         </div>
