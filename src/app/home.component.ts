@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { BookCard } from './book.card';
+import { SearchOutput } from './search.output';
 
 @Component({
     selector: 'app-home',
@@ -10,8 +11,9 @@ import { BookCard } from './book.card';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private bookCards: BookCard[];
-    private bookClickedCounter: number;
+    private bookClicked: number;
     private searchQuery: string;
+    private searchInput: string;
     private sub: any;
 
     constructor(private route: ActivatedRoute) {
@@ -25,12 +27,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.sub.unsubscribe();
     }    
 
-    onSearched(bookCards) {
-        this.bookCards = bookCards;
+    onSearched(searchOutput: SearchOutput) {
+        this.bookCards = searchOutput.bookCards;
+        this.searchInput = searchOutput.searchInput;
     }
 
-    onBookClicked(counter) {
-        this.bookClickedCounter = counter;
+    onBookClicked() {
+        console.log(this.searchInput);
     }
 
     private fetchBookCards(params): void {

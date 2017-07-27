@@ -10,15 +10,14 @@ import { BookCard } from './book.card';
 export class BookListComponent implements OnChanges {
     @Input() private bookCards: BookCard[];
     @Output() private bookListOutput;
-    private bookClickedCounter = 0;
 
     constructor() {
-        this.bookListOutput = new EventEmitter<number>();
+        this.bookListOutput = new EventEmitter();
     }
 
     ngOnChanges() {}
 
     onBookClicked(): void {
-        this.bookListOutput.emit(++this.bookClickedCounter);
+        this.bookListOutput.emit();
     }
 }

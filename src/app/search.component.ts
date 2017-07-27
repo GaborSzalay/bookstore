@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 
 import { BookService } from './book.service';
 import { BookCard } from './book.card';
+import { SearchOutput } from './search.output';
 
 @Component({
     selector: 'app-search',
@@ -12,8 +13,8 @@ import { BookCard } from './book.card';
 })
 export class SearchComponent implements OnChanges {
     searchControl: FormControl;
-    @Input() searchQuery: string;
-    @Input() bookClickedCounter: number;
+    @Input('searchQuery') searchQuery: string;
+    @Input('bookClicked') bookClicked: number;
     @Output() searchOutput;
 
     constructor(private bookService: BookService) {
@@ -30,13 +31,13 @@ export class SearchComponent implements OnChanges {
 
     private handleSearchInputChange(searchInput: string): void {
         if (searchInput.length > 0) {
-            this.bookService.searchBooks(searchInput).subscribe(this.notifyBookSearchSubscribers.bind(this));
+            this.bookService.searchBooks(searchInput).subscribe(this.notifyBookSearchSubscribers.bind(this, searchInput));
         } else {
             this.notifyBookSearchSubscribers.call(this, []);
         }
     }
 
-    private notifyBookSearchSubscribers(bookCards: BookCard[]): void {
-        this.searchOutput.emit(bookCards);
+    private notifyBookSearchSubscribers(searchInput: string, bookCards: BookCard[]): void {
+        this.searchOutput.emit(new SearchOutput(bookCards, searchInput));
     }
 }
