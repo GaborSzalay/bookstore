@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { BookCard } from './book.card';
 
@@ -7,10 +8,26 @@ import { BookCard } from './book.card';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-    bookCards: BookCard[];
+export class HomeComponent implements OnInit, OnDestroy {
+    private bookCards: BookCard[];
+    private sub: any;
+
+    constructor(private route: ActivatedRoute) {
+    }
+
+    ngOnInit() {
+        this.sub = this.route.queryParams.subscribe(this.fetchBookCards.bind(this));
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }    
 
     onSearched(bookCards) {
         this.bookCards = bookCards;
     }
+
+    private fetchBookCards(params): void {
+        console.log(params['id']);
+    }    
 }
