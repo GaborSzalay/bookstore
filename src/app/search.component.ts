@@ -13,6 +13,7 @@ import { BookCard } from './book.card';
 export class SearchComponent implements OnChanges {
     searchControl: FormControl;
     @Input() searchQuery: string;
+    @Input() bookClickedCounter: number;
     @Output() searchOutput;
 
     constructor(private bookService: BookService) {
@@ -23,7 +24,7 @@ export class SearchComponent implements OnChanges {
 
     ngOnChanges() {
         if (this.searchQuery) {
-            this.searchControl.setValue(this.searchQuery);
+            this.searchControl.setValue(decodeURI(this.searchQuery));
         }
     }
 

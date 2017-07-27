@@ -10,6 +10,7 @@ import { BookCard } from './book.card';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private bookCards: BookCard[];
+    private bookClickedCounter: number;
     private searchQuery: string;
     private sub: any;
 
@@ -26,6 +27,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     onSearched(bookCards) {
         this.bookCards = bookCards;
+    }
+
+    onBookClicked(counter) {
+        this.bookClickedCounter = counter;
     }
 
     private fetchBookCards(params): void {

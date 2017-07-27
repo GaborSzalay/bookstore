@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 
 import { BookCard } from './book.card';
 
@@ -8,9 +8,17 @@ import { BookCard } from './book.card';
     styleUrls: ['./book.list.component.scss']
 })
 export class BookListComponent implements OnChanges {
-    @Input() bookCards: BookCard[];
+    @Input() private bookCards: BookCard[];
+    @Output() private bookListOutput;
+    private bookClickedCounter = 0;
 
-    ngOnChanges() {
+    constructor() {
+        this.bookListOutput = new EventEmitter<number>();
+    }
 
+    ngOnChanges() {}
+
+    onBookClicked(): void {
+        this.bookListOutput.emit(++this.bookClickedCounter);
     }
 }
