@@ -24,7 +24,7 @@ export class SearchComponent implements OnChanges {
 
     ngOnChanges() {
         if (this.searchQuery) {
-            this.searchControl.setValue(decodeURI(this.searchQuery));
+            this.searchControl.setValue(this.searchQuery);
         }
     }
 

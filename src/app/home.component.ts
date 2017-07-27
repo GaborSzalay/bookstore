@@ -3,11 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 
 import { BookCard } from './book.card';
 import { SearchOutput } from './search.output';
+import { SearchHistoryService } from './search.history.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    providers: [SearchHistoryService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private bookCards: BookCard[];
@@ -15,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private searchInput: string;
     private sub: any;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, private searchHistoryService: SearchHistoryService) {
     }
 
     ngOnInit() {
@@ -32,7 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     onBookClicked() {
-        console.log(this.searchInput);
+        this.searchHistoryService.storeLastSearchInput(this.searchInput);
     }
 
     private fetchBookCards(params): void {
