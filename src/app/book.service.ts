@@ -21,6 +21,9 @@ export class BookService implements OnInit {
                 const imageLinks = responseObject.volumeInfo.imageLinks;
                 const bookDetail: BookDetail = new BookDetail(this.createBookCard(responseObject));
                 bookDetail.smallImage = imageLinks.small ? imageLinks.small : imageLinks.thumbnail;
+                bookDetail.description = responseObject.volumeInfo.description;
+                bookDetail.pageCount = responseObject.volumeInfo.printedPageCount;
+                bookDetail.publisher = responseObject.volumeInfo.publisher;
                 return bookDetail;
             });
     }    

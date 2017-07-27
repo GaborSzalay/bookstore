@@ -2,6 +2,9 @@ import { BookCard } from './book.card';
 
 export class BookDetail extends BookCard {
     smallImage: string;
+    description: string;
+    pageCount: number;
+    publisher: string;
 
     constructor(bookCard: BookCard) { 
         super()
