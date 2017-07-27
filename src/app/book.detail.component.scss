@@ -12,21 +12,6 @@
     h4 {
         margin-top: 24px;
     }
-
-    .shopping-cart {
-        float: right;
-        font-size: 26px;
-        color: red;
-        margin-right: 18px;
-        margin-top: -12px;
-        text-decoration: none;
-    }
-
-    .shopping-cart:before {
-        color: black;
-        margin-right: -38px;
-        vertical-align: middle;
-    }
 }
 
 @media (max-width: 991px) {
