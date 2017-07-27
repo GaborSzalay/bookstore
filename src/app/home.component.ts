@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.sub.unsubscribe();
-    }    
+    }
 
     onSearched(searchOutput: SearchOutput) {
         this.bookCards = searchOutput.bookCards;
@@ -37,5 +37,5 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     private fetchBookCards(params): void {
         this.searchQuery = params['query'];
-    }    
+    }
 }
