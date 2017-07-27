@@ -35,7 +35,7 @@ export class ShoppingCartService {
 
     getShoppingCart(): Observable<BookDetail[]> {
         const encodedValue = this.cookieService.get(this.shoppingCartKey);
-        if (!encodedValue) return;
+        if (!encodedValue) { return; }
 
         const ids = JSON.parse(window.atob(encodedValue));
         return this.bookService.getBooks(ids);

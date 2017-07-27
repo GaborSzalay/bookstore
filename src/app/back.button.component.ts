@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SearchHistoryService } from './search.history.service';
 
@@ -8,7 +8,7 @@ import { SearchHistoryService } from './search.history.service';
     styleUrls: ['./back.button.component.scss'],
     providers: [SearchHistoryService]
 })
-export class BackButtonComponent {
+export class BackButtonComponent implements OnInit {
     private lastSearchedInput: string;
 
     constructor(private searchHistoryService: SearchHistoryService) { }
