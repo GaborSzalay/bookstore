@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 
@@ -11,7 +11,7 @@ import { BookService } from './book.service';
     styleUrls: ['./book.detail.component.scss'],
     providers: [BookService, CookieService]
 })
-export class BookDetailComponent {
+export class BookDetailComponent implements OnInit, OnDestroy {
     private sub: any;
     private bookDetail: BookDetail;
 
@@ -23,7 +23,7 @@ export class BookDetailComponent {
 
     ngOnDestroy() {
         this.sub.unsubscribe();
-    }        
+    }
 
     private fetchBook(params): void {
         this.bookService.getBook(params['id']).subscribe( bookDetail => {

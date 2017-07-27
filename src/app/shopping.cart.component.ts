@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { BookDetail } from './book.detail';
 import { ShoppingCartService } from './shopping.cart.service';
@@ -9,7 +9,7 @@ import { ShoppingCartService } from './shopping.cart.service';
     styleUrls: ['./shopping.cart.component.scss'],
     providers: [ShoppingCartService]
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
     private bookDetails: BookDetail[];
 
     constructor(private shoppingCartService: ShoppingCartService) { }

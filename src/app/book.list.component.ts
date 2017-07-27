@@ -10,7 +10,7 @@ import { BookCard } from './book.card';
 export class BookListComponent implements OnChanges {
     @Input() bookCards: BookCard[];
 
-    ngOnChanges(bookCards) {
-        this.bookCards;
+    ngOnChanges() {
+
     }
 }

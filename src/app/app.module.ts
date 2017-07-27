@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     {
         path: 'shopping-cart',
         component: ShoppingCartComponent
-    }    
+    }
 ];
 @NgModule({
     declarations: [

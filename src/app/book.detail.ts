@@ -6,7 +6,7 @@ export class BookDetail extends BookCard {
     pageCount: number;
     publisher: string;
 
-    constructor(bookCard: BookCard) { 
+    constructor(bookCard: BookCard) {
         super()
         this.id = bookCard.id;
         this.title = bookCard.title;

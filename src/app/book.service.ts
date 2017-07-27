@@ -26,7 +26,7 @@ export class BookService implements OnInit {
                 bookDetail.publisher = responseObject.volumeInfo.publisher;
                 return bookDetail;
             });
-    }    
+    }
 
     searchBooks(searchInput: string): Observable<BookCard[]> {
         return this.http.get(this.getGoogleBooksUrl(searchInput))
@@ -38,7 +38,7 @@ export class BookService implements OnInit {
     }
 
     private getGoogleBooksUrl(searchInput: string): string {
-        const booksApiKey: string = "AIzaSyCJ2JGaSCgLqiOfaLJW8ul6oVmXc3WTcjw";
+        const booksApiKey = 'AIzaSyCJ2JGaSCgLqiOfaLJW8ul6oVmXc3WTcjw';
         const encodedSearchInput: string = encodeURI(searchInput);
         return `https://www.googleapis.com/books/v1/volumes?q=${encodedSearchInput}&startIndex=0&maxResults=10&key=${booksApiKey}`;
     }
