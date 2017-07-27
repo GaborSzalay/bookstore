@@ -5,22 +5,29 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { BookCard } from './book.card';
+import { BookDetail } from './book.detail';
 
 @Injectable()
 export class BookService implements OnInit {
 
     constructor(private http: Http) {}
 
-    ngOnInit(): void {
+    ngOnInit(): void {}
 
-    }
+    getBook(id: string): Observable<BookDetail> {
+        return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
+            .map((res: Response) => {
+                const bookDetail: BookDetail = new BookDetail(this.createBookCard(res.json()));
+                return bookDetail;
+            });
+    }    
 
     searchBooks(searchInput: string): Observable<BookCard[]> {
         return this.http.get(this.getGoogleBooksUrl(searchInput))
             .map((res: Response) => {
                 const responseObject: any = res.json();
 
-                return responseObject.totalItems ? res.json().items.map(this.createBookCard) : [];
+                return responseObject.totalItems ? responseObject.items.map(this.createBookCard) : [];
             });
     }
 
