@@ -2,7 +2,7 @@
     <nav>
         <a routerLink="/" class="btn btn-info">Back to search</a>
         <a class="btn btn-info" (click)="addToCart(bookDetail.id)">Add to shopping cart</a>
-        <span class="shopping-cart glyphicon glyphicon-shopping-cart">3</span>
+        <a routerLink="/shopping-cart" class="shopping-cart glyphicon glyphicon-shopping-cart">3</a>
     </nav>
     <div class="col-md-6">
         <h1 class="title">{{bookDetail.title}}</h1>

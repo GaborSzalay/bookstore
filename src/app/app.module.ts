@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 import { SearchComponent } from './search.component';
 import { BookListComponent } from './book.list.component';
 import { BookDetailComponent } from './book.detail.component';
+import { ShoppingCartComponent } from './shopping.cart.component';
 
 const appRoutes: Routes = [
     {
@@ -20,7 +21,11 @@ const appRoutes: Routes = [
         path: 'detail/:id',
         component: BookDetailComponent,
         data: { id: 'id' }
-    }
+    },
+    {
+        path: 'shopping-cart',
+        component: ShoppingCartComponent
+    }    
 ];
 @NgModule({
     declarations: [
@@ -28,7 +33,8 @@ const appRoutes: Routes = [
         HomeComponent,
         SearchComponent,
         BookListComponent,
-        BookDetailComponent
+        BookDetailComponent,
+        ShoppingCartComponent
     ],
     imports: [
         CookieModule.forRoot(),

@@ -1,5 +1,5 @@
 export class BookCard {
-    id: number;
+    id: string;
     title: string;
     subtitle: string;
     selfLink: string;
