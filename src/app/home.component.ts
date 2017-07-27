@@ -10,6 +10,7 @@ import { BookCard } from './book.card';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private bookCards: BookCard[];
+    private searchQuery: string;
     private sub: any;
 
     constructor(private route: ActivatedRoute) {
@@ -28,6 +29,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     private fetchBookCards(params): void {
-        console.log(params['id']);
+        this.searchQuery = params['query'];
     }    
 }

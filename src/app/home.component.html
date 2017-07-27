@@ -1,6 +1,6 @@
 <div class="home">
     <div class="col-md-4 col-md-offset-4">
-        <app-search (searchOutput)="onSearched($event)"></app-search>
+        <app-search (searchOutput)="onSearched($event)" [searchQuery]="searchQuery"></app-search>
     </div>
     <div class="col-md-10 col-md-offset-1">
         <app-book-list [bookCards]="bookCards"></app-book-list>

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { BookService } from './book.service';
@@ -10,14 +10,21 @@ import { BookCard } from './book.card';
     styleUrls: ['./search.component.scss'],
     providers: [BookService]
 })
-export class SearchComponent {
+export class SearchComponent implements OnChanges {
     searchControl: FormControl;
+    @Input() searchQuery: string;
     @Output() searchOutput;
 
     constructor(private bookService: BookService) {
         this.searchControl = new FormControl();
         this.searchControl.valueChanges.subscribe(this.handleSearchInputChange.bind(this));
         this.searchOutput = new EventEmitter<BookCard[]>();
+    }
+
+    ngOnChanges() {
+        if (this.searchQuery) {
+            this.searchControl.setValue(this.searchQuery);
+        }
     }
 
     private handleSearchInputChange(searchInput: string): void {
