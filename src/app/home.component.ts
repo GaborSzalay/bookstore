@@ -11,7 +11,6 @@ import { SearchOutput } from './search.output';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private bookCards: BookCard[];
-    private bookClicked: number;
     private searchQuery: string;
     private searchInput: string;
     private sub: any;

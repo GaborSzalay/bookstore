@@ -13,8 +13,7 @@ import { SearchOutput } from './search.output';
 })
 export class SearchComponent implements OnChanges {
     searchControl: FormControl;
-    @Input('searchQuery') searchQuery: string;
-    @Input('bookClicked') bookClicked: number;
+    @Input() searchQuery: string;
     @Output() searchOutput;
 
     constructor(private bookService: BookService) {
