@@ -34,6 +34,6 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     }
 
     private addToCart(id: string): void {
-        
+
     }
 }
