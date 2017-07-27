@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -13,6 +13,16 @@ export class BookService implements OnInit {
     constructor(private http: Http) {}
 
     ngOnInit(): void {}
+
+    getBooks(ids: string[]): Observable<BookDetail[]> {
+        const requests: Observable<BookDetail>[] = [];
+
+        ids.forEach( id => {
+            requests.push(this.getBook(id));
+        });
+
+        return Observable.forkJoin(requests)
+    }
 
     getBook(id: string): Observable<BookDetail> {
         return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}`)

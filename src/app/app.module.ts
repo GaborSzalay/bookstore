@@ -11,6 +11,9 @@ import { SearchComponent } from './search.component';
 import { BookListComponent } from './book.list.component';
 import { BookDetailComponent } from './book.detail.component';
 import { ShoppingCartComponent } from './shopping.cart.component';
+import { BackButtonComponent } from './back.button.component';
+
+import { BookService } from './book.service';
 
 const appRoutes: Routes = [
     {
@@ -34,7 +37,8 @@ const appRoutes: Routes = [
         SearchComponent,
         BookListComponent,
         BookDetailComponent,
-        ShoppingCartComponent
+        ShoppingCartComponent,
+        BackButtonComponent
     ],
     imports: [
         CookieModule.forRoot(),
@@ -48,6 +52,7 @@ const appRoutes: Routes = [
         FormsModule,
         ReactiveFormsModule
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [BookService]
 })
 export class AppModule { }
