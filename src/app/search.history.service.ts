@@ -10,7 +10,7 @@ export class SearchHistoryService {
     constructor(private cookieService: CookieService) {}
 
     storeLastSearchInput(searchInput: string): void {
-        this.cookieService.put('lastSearch', searchInput);
+        this.cookieService.put('lastSearch', encodeURI(searchInput));
     }
 
     retrieveLastSearchInput(): string {
