@@ -1,6 +1,7 @@
-<div class="book-detail col-md-6 col-md-offset-3">
+<div *ngIf="bookDetail" class="book-detail col-md-6 col-md-offset-3">
     <a routerLink="/" routerLinkActive="active" class="btn btn-info">Back to search</a>
     <h1>
         {{bookDetail.title}}
     </h1>
+    <img *ngIf="bookDetail.smallImage" src="{{bookDetail.smallImage}}" alt="{{bookDetail.title}}">
 </div>

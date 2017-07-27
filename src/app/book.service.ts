@@ -17,7 +17,10 @@ export class BookService implements OnInit {
     getBook(id: string): Observable<BookDetail> {
         return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
             .map((res: Response) => {
-                const bookDetail: BookDetail = new BookDetail(this.createBookCard(res.json()));
+                const responseObject: any = res.json();
+                const imageLinks = responseObject.volumeInfo.imageLinks;
+                const bookDetail: BookDetail = new BookDetail(this.createBookCard(responseObject));
+                bookDetail.smallImage = imageLinks.small ? imageLinks.small : imageLinks.thumbnail;
                 return bookDetail;
             });
     }    

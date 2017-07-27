@@ -1,6 +1,7 @@
 import { BookCard } from './book.card';
 
 export class BookDetail extends BookCard {
+    smallImage: string;
 
     constructor(bookCard: BookCard) { 
         super()
