@@ -13,7 +13,7 @@
             </li>
         </ul>
 
-        <h3>Description</h3>
+        <h3 *ngIf="bookDetail.description">Description</h3>
         <p>{{bookDetail.description}}</p>
 
         <h4 class="col-md-6 col-sm-6 col-xs-6">Publisher</h4>

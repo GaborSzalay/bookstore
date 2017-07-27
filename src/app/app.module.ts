@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CookieModule } from 'ngx-cookie';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
         BookDetailComponent
     ],
     imports: [
+        CookieModule.forRoot(),
         RouterModule.forRoot(
             appRoutes,
             { enableTracing: true }
