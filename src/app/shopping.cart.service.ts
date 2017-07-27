@@ -23,7 +23,7 @@ export class ShoppingCartService {
             });
 
             if (newItem) {
-                cartItems.push(newItem);
+                cartItems.push(cartItemId);
                 const encodedItems = window.btoa(JSON.stringify(cartItems))
                 this.cookieService.put(this.shoppingCartKey, encodedItems);
             }
