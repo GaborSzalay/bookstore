@@ -10,14 +10,14 @@ import { BookCard } from './book.card';
 })
 export class BookDetailComponent {
     bookCards: BookCard[];
-    id: number;
+    id: string;
     private sub: any;
 
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
-            this.id = +params['id'];
+            this.id = params['id'];
         });
     }
 
