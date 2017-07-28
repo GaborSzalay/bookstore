@@ -14,6 +14,7 @@ import { ShoppingCartService } from './shopping.cart.service';
 export class BookDetailComponent implements OnInit, OnDestroy {
     private sub: any;
     private bookDetail: BookDetail;
+    private refreshShoppingCartIcon = false;
 
     constructor(private route: ActivatedRoute, private bookService: BookService, private shoppingCartService: ShoppingCartService) { }
 
@@ -33,5 +34,6 @@ export class BookDetailComponent implements OnInit, OnDestroy {
 
     private addToCart(id: string): void {
         this.shoppingCartService.addToShoppingCart(id);
+        this.refreshShoppingCartIcon = !this.refreshShoppingCartIcon;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { ShoppingCartService } from './shopping.cart.service';
 
@@ -8,13 +8,18 @@ import { ShoppingCartService } from './shopping.cart.service';
     styleUrls: ['./shopping.cart.icon.component.scss'],
     providers: [ShoppingCartService]
 })
-export class ShoppingCartIconComponent implements OnInit {
+export class ShoppingCartIconComponent implements OnInit, OnChanges {
     private numberOfCartItems: number;
-    @Input() reverseColor: boolean;
+    @Input('reverseColor') reverseColor: boolean;
+    @Input('refreshShoppingCartIcon') refreshShoppingCartIcon: boolean;
 
     constructor(private shoppingCartService: ShoppingCartService) { }
 
     ngOnInit() {
+        this.numberOfCartItems = this.shoppingCartService.getShoppingCartSize();
+    }
+
+    ngOnChanges() {
         this.numberOfCartItems = this.shoppingCartService.getShoppingCartSize();
     }
 }

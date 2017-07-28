@@ -2,7 +2,7 @@
     <nav>
         <app-back-button></app-back-button>
         <a class="btn btn-info" (click)="addToCart(bookDetail.id)">Add to shopping cart</a>
-        <app-shopping-cart-icon></app-shopping-cart-icon>
+        <app-shopping-cart-icon [refreshShoppingCartIcon]="refreshShoppingCartIcon"></app-shopping-cart-icon>
     </nav>
     <div class="col-md-6">
         <h1 class="title">{{bookDetail.title}}</h1>
