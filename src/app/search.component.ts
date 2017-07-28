@@ -29,6 +29,10 @@ export class SearchComponent implements OnChanges {
     }
 
     private handleSearchInputChange(searchInput: string): void {
+        delay(this.doSearchInputChange.bind(this, searchInput), 700);
+    }
+
+    private doSearchInputChange(searchInput: string): void {
         if (searchInput.length > 0) {
             this.bookService.searchBooks(searchInput).subscribe(this.notifyBookSearchSubscribers.bind(this, searchInput));
         } else {
@@ -40,3 +44,13 @@ export class SearchComponent implements OnChanges {
         this.searchOutput.emit(new SearchOutput(bookCards, searchInput));
     }
 }
+
+
+
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();

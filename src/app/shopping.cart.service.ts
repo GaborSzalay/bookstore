@@ -42,7 +42,7 @@ export class ShoppingCartService {
     }
 
     getShoppingCartSize(): number {
-        return this.getCartIds().length;
+        return this.getCartIds() ? this.getCartIds().length : 0;
     }
 
     private isNewItem(ids: string[], newId: string): boolean {
