@@ -11,19 +11,25 @@ import { ShoppingCartService } from './shopping.cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
     private bookDetails: BookDetail[];
+    private emptyCart = false;
 
     constructor(private shoppingCartService: ShoppingCartService) { }
 
     ngOnInit() {
-        this.shoppingCartService.getShoppingCart().subscribe(books => {
-            this.bookDetails = books;
-        });
+        this.refreshCart();
     }
 
     removeItem(id: string): void {
         this.shoppingCartService.removeItem(id);
+        this.refreshCart();
+    }
+
+    private refreshCart(): void {
         this.shoppingCartService.getShoppingCart().subscribe(books => {
             this.bookDetails = books;
+        }, error => {
+            this.emptyCart = true;
+            this.bookDetails = [];
         });
     }
 }

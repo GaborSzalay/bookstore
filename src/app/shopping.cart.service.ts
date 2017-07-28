@@ -26,7 +26,13 @@ export class ShoppingCartService {
     }
 
     getShoppingCart(): Observable<BookDetail[]> {
-        return this.bookService.getBooks(this.getCartIds());
+        let result: Observable<BookDetail[]>;
+        if (this.getCartIds().length > 0) {
+            result = this.bookService.getBooks(this.getCartIds());
+        } else {
+            result = Observable.throw('Shopping cart is empty.');
+        }
+        return result; 
     }
 
     removeItem(id: string): void {

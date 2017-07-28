@@ -1,6 +1,8 @@
 <div class="shopping-cart col-md-6 col-md-offset-3">
     <app-back-button></app-back-button>
 
+    <span *ngIf="emptyCart">Your cart is empty.</span>
+
     <ul class="cart-items">
         <li *ngFor="let bookDetail of bookDetails">
             <div>
