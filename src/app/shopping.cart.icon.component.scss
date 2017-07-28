@@ -1,14 +1,22 @@
-    .shopping-cart {
-        float: right;
-        font-size: 26px;
-        color: red;
-        margin-right: 18px;
-        margin-top: -12px;
-        text-decoration: none;
-    }
+.shopping-cart {
+    float: right;
+    font-size: 26px;
+    color: red;
+    margin-right: 18px;
+    margin-top: -12px;
+    text-decoration: none;
 
-    .shopping-cart:before {
+    &::before {
         color: black;
         margin-right: -38px;
         vertical-align: middle;
     }
+}
+
+.reverse {
+    color: lightsalmon;
+
+    &::before {
+        color: white;
+    }
+}
