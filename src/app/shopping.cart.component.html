@@ -3,7 +3,11 @@
 
     <ul class="cart-items">
         <li *ngFor="let bookDetail of bookDetails">
-            {{bookDetail.id}}
+            <div>
+                <h1>{{bookDetail.title}}</h1>
+                <span>{{bookDetail.authors}}</span>
+                <a class="btn btn-info" (click)="removeItem(bookDetail.id)">Remove</a>
+            </div>
         </li>
     </ul>    
 </div>

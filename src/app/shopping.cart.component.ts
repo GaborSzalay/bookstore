@@ -19,4 +19,8 @@ export class ShoppingCartComponent implements OnInit {
             this.bookDetails = books;
         });
     }
+
+    removeItem(id: string): void {
+        this.shoppingCartService.removeItem(id);
+    }
 }

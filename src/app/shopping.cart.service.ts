@@ -15,21 +15,13 @@ export class ShoppingCartService {
         const encodedValue = this.cookieService.get(this.shoppingCartKey);
         if (encodedValue) {
             const cartItems = JSON.parse(window.atob(encodedValue));
-            let newItem = true;
-            cartItems.forEach(id => {
-                if (id === cartItemId) {
-                    newItem = false;
-                }
-            });
-
-            if (newItem) {
+            
+            if (this.isNewItem(cartItems, cartItemId)) {
                 cartItems.push(cartItemId);
-                const encodedItems = window.btoa(JSON.stringify(cartItems))
-                this.cookieService.put(this.shoppingCartKey, encodedItems);
+                this.storeIds(cartItems);
             }
         } else {
-            const encodedFirstId = window.btoa(JSON.stringify([cartItemId]));
-            this.cookieService.put(this.shoppingCartKey, encodedFirstId)
+            this.storeIds([cartItemId]);
         }
     }
 
@@ -37,8 +29,31 @@ export class ShoppingCartService {
         return this.bookService.getBooks(this.getCartIds());
     }
 
+    removeItem(id: string): void {
+        const ids = this.getCartIds();
+
+        this.storeIds(ids.filter( currentId => currentId !== id ));
+    }
+
     getShoppingCartSize(): number {
         return this.getCartIds().length;
+    }
+
+    private isNewItem(ids: string[], newId: string): boolean {
+        let newItem = true;
+
+        ids.forEach(id => {
+            if (id === newId) {
+                newItem = false;
+            }
+        });
+
+        return newItem;
+    }
+
+    private storeIds(ids: string[]): void {
+        const encodedItems = window.btoa(JSON.stringify(ids));
+        this.cookieService.put(this.shoppingCartKey, encodedItems);
     }
 
     private getCartIds(): string[] {

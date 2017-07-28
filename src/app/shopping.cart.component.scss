@@ -2,4 +2,18 @@
     margin-top: 60px;
     background: rgba(255,255,255,0.9);
     padding: 15px;
+
+    div {
+        position: relative;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    a {
+        position: absolute;
+        right: 0px;
+        top: 6px;
+    }
 }
