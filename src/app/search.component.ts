@@ -12,9 +12,10 @@ import { SearchOutput } from './search.output';
     providers: [BookService]
 })
 export class SearchComponent implements OnChanges {
-    searchControl: FormControl;
-    @Input() searchQuery: string;
-    @Output() searchOutput;
+    private searchControl: FormControl;
+    @Input() private searchQuery: string;
+    @Output() private searchOutput;
+    private timer = 0;
 
     constructor(private bookService: BookService) {
         this.searchControl = new FormControl();
@@ -29,7 +30,7 @@ export class SearchComponent implements OnChanges {
     }
 
     private handleSearchInputChange(searchInput: string): void {
-        delay(this.doSearchInputChange.bind(this, searchInput), 700);
+        this.delaySearching(this.doSearchInputChange.bind(this, searchInput), 700);
     }
 
     private doSearchInputChange(searchInput: string): void {
@@ -40,17 +41,12 @@ export class SearchComponent implements OnChanges {
         }
     }
 
+    private delaySearching(callback, ms) {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(callback, ms);
+    }
+
     private notifyBookSearchSubscribers(searchInput: string, bookCards: BookCard[]): void {
         this.searchOutput.emit(new SearchOutput(bookCards, searchInput));
     }
 }
-
-
-
-var delay = (function(){
-  var timer = 0;
-  return function(callback, ms){
-    clearTimeout (timer);
-    timer = setTimeout(callback, ms);
-  };
-})();
