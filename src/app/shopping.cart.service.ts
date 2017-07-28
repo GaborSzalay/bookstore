@@ -32,7 +32,7 @@ export class ShoppingCartService {
         } else {
             result = Observable.throw('Shopping cart is empty.');
         }
-        return result; 
+        return result;
     }
 
     removeItem(id: string): void {
