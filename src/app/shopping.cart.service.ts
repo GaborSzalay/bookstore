@@ -15,7 +15,7 @@ export class ShoppingCartService {
         const encodedValue = this.cookieService.get(this.shoppingCartKey);
         if (encodedValue) {
             const cartItems = JSON.parse(window.atob(encodedValue));
-            
+
             if (this.isNewItem(cartItems, cartItemId)) {
                 cartItems.push(cartItemId);
                 this.storeIds(cartItems);

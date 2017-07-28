@@ -22,5 +22,8 @@ export class ShoppingCartComponent implements OnInit {
 
     removeItem(id: string): void {
         this.shoppingCartService.removeItem(id);
+        this.shoppingCartService.getShoppingCart().subscribe(books => {
+            this.bookDetails = books;
+        });
     }
 }
