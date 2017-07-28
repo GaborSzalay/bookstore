@@ -11,7 +11,7 @@ import { ShoppingCartService } from './shopping.cart.service';
 export class ShoppingCartIconComponent implements OnInit {
     private numberOfCartItems: number;
     @Input() reverseColor: boolean;
-    
+
     constructor(private shoppingCartService: ShoppingCartService) { }
 
     ngOnInit() {
