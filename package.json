@@ -11,7 +11,8 @@
     "serve": "ng serve",
     "build": "ng build",
     "build-watch": "ng build -w",
-    "test": "karma start karma.conf.js --single-run",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js --single-run",
     "lint": "ng lint",
     "build-ci": "yarn run lint && yarn run test"
   },
