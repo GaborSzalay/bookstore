@@ -8,6 +8,7 @@ import { SearchHistoryService } from './services/search.history.service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
     providers: [SearchHistoryService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
