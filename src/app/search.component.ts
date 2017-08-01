@@ -30,7 +30,7 @@ export class SearchComponent implements OnChanges {
     }
 
     private handleSearchInputChange(searchInput: string): void {
-        this.delaySearching(this.doSearchInputChange.bind(this, searchInput), 700);
+        this.delaySearching(this.doSearchInputChange.bind(this, searchInput), 400);
     }
 
     private doSearchInputChange(searchInput: string): void {
