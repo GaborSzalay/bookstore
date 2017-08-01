@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { BookCard } from './book.card';
-import { BookDetail } from './book.detail';
+import { BookCard } from '../book.card';
+import { BookDetail } from '../book.detail';
 
 @Injectable()
 export class BookService implements OnInit {

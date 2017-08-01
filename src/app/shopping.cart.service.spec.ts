@@ -1,7 +1,7 @@
 import { ShoppingCartService } from './shopping.cart.service'
 import { CookieService } from 'ngx-cookie';
 import { Observable } from 'rxjs/Rx';
-import { BookService } from './book.service';
+import { BookService } from './services/book.service';
 import { BookDetail } from './book.detail';
 
 describe('shoppingCartService', () => {

@@ -14,7 +14,7 @@ import { ShoppingCartComponent } from './shopping.cart.component';
 import { BackButtonComponent } from './back.button.component';
 import { ShoppingCartIconComponent } from './shopping.cart.icon.component';
 
-import { BookService } from './book.service';
+import { BookService } from './services/book.service';
 
 const appRoutes: Routes = [
     {

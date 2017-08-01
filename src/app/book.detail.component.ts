@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { BookDetail } from './book.detail';
-import { BookService } from './book.service';
+import { BookService } from './services/book.service';
 import { ShoppingCartService } from './shopping.cart.service';
 
 @Component({

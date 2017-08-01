@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { BookCard } from './book.card';
 import { BookDetail } from './book.detail';
-import { BookService } from './book.service';
+import { BookService } from './services/book.service';
 
 @Injectable()
 export class ShoppingCartService {
