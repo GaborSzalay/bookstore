@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { ShoppingCartService } from './shopping.cart.service';
+import { ShoppingCartService } from './services/shopping.cart.service';
 
 @Component({
     selector: 'app-shopping-cart-icon',

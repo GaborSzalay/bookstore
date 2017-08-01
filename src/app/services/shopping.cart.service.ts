@@ -2,9 +2,9 @@ import { Injectable, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { Observable } from 'rxjs/Rx';
 
-import { BookCard } from './book.card';
-import { BookDetail } from './book.detail';
-import { BookService } from './services/book.service';
+import { BookCard } from '../book.card';
+import { BookDetail } from '../book.detail';
+import { BookService } from './book.service';
 
 @Injectable()
 export class ShoppingCartService {

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { BookDetail } from './book.detail';
 import { BookService } from './services/book.service';
-import { ShoppingCartService } from './shopping.cart.service';
+import { ShoppingCartService } from './services/shopping.cart.service';
 
 @Component({
     selector: 'app-book-detail',
