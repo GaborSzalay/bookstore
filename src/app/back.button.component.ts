@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SearchHistoryService } from './search.history.service';
+import { SearchHistoryService } from './services/search.history.service';
 
 @Component({
     selector: 'app-back-button',

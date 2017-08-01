@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { BookCard } from './book.card';
 import { SearchOutput } from './search.output';
-import { SearchHistoryService } from './search.history.service';
+import { SearchHistoryService } from './services/search.history.service';
 
 @Component({
     selector: 'app-home',
