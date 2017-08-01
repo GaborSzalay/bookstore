@@ -11,7 +11,7 @@
     "serve": "ng serve",
     "build": "ng build",
     "build-watch": "ng build -w",
-    "test": "ng test",
+    "test": "karma start karma.conf.js",
     "lint": "ng lint",
     "build-ci": "yarn run lint && yarn run test"
   },
@@ -27,9 +27,14 @@
     "core-js": "^2.4.1",
     "ejs": "^2.5.6",
     "hammerjs": "^2.0.8",
+    "ie-shim": "^0.1.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-sauce-launcher": "^1.1.0",
+    "karma-sourcemap-loader": "^0.3.7",
     "material": "^0.1.1",
     "ngx-cookie": "^1.0.0",
     "rxjs": "^5.1.0",
+    "systemjs": "^0.20.17",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
