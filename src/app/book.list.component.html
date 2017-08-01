@@ -2,7 +2,9 @@
     <li *ngFor="let book of bookCards">
         <div class="thumbnail">
             <div class="image-container">
-                <img *ngIf="book.thumbnail" src="{{book.thumbnail}}" alt="{{book.title}}">
+                <a routerLink="/detail/{{book.id}}" (click)="onBookClicked()">
+                    <img *ngIf="book.thumbnail" src="{{book.thumbnail}}" alt="{{book.title}}">
+                </a>
             </div>
             <div class="caption">
                 <a routerLink="/detail/{{book.id}}" (click)="onBookClicked()">{{book.title}}</a>
