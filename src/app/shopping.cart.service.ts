@@ -64,7 +64,7 @@ export class ShoppingCartService {
 
     private getCartIds(): string[] {
         const encodedValue = this.cookieService.get(this.shoppingCartKey);
-        if (!encodedValue) { return; }
+        if (!encodedValue) { return []; }
 
         return JSON.parse(window.atob(encodedValue));
     }
