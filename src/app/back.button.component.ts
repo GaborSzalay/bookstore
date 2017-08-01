@@ -8,7 +8,7 @@ import { SearchHistoryService } from './services/search.history.service';
     providers: [SearchHistoryService]
 })
 export class BackButtonComponent implements OnInit {
-    private lastSearchedInput: string;
+    lastSearchedInput: string;
 
     constructor(private searchHistoryService: SearchHistoryService) { }
 

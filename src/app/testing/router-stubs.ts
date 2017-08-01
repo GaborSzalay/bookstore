@@ -14,6 +14,7 @@ import { NavigationExtras } from '@angular/router';
 })
 export class RouterLinkStubDirective {
     @Input('routerLink') linkParams: any;
+    @Input('queryParams') queryParams: any;
     navigatedTo: any = null;
 
     onClick() {
