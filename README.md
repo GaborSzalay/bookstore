@@ -12,3 +12,5 @@ Example Angualar app that fetches and stores books
 
 Written in Angular and TypeScript.
 Still in progress, see [issues](https://github.com/GaborSzalay/bookstore/issues) for the upcoming features and bugs.
+
+![bookstore](https://github.com/GaborSzalay/bookstore/raw/master/src/assets/readme_thumbnail.png)
