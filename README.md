@@ -1,5 +1,5 @@
-# bookstore
-Example Angualar app that fetches and stores books [![Circle CI](https://circleci.com/gh/GaborSzalay/bookstore.svg?style=svg)](https://circleci.com/gh/GaborSzalay/bookstore)
+# bookstore [![Build Status](https://travis-ci.org/GaborSzalay/bookstore.svg?branch=master)](https://travis-ci.org/GaborSzalay/bookstore)
+Example Angualar app that fetches and stores books
 
 # Running the application
 1. run `yarn install`
@@ -8,7 +8,7 @@ Example Angualar app that fetches and stores books [![Circle CI](https://circlec
 
 # Running tests
 1. run `yarn install`
-3. run `yarn test`
+3. run `yarn run test-dev`
 
 Written in Angular and TypeScript.
 Still in progress, see [issues](https://github.com/GaborSzalay/bookstore/issues) for the upcoming features and bugs.
