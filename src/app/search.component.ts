@@ -2,8 +2,8 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
 import { FormControl } from '@angular/forms';
 
 import { BookService } from './services/book.service';
-import { BookCard } from './book.card';
-import { SearchOutput } from './search.output';
+import { BookCard } from './model/book.card';
+import { SearchOutput } from './model/search.output';
 
 @Component({
     selector: 'app-search',

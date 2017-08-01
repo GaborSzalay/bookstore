@@ -1,8 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 
-import { BookCard } from '../book.card';
-import { BookDetail } from '../book.detail';
+import { BookCard } from '../model/book.card';
+import { BookDetail } from '../model/book.detail';
 
 @Injectable()
 export class SearchHistoryService {

@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 
-import { BookCard } from './book.card';
+import { BookCard } from './model/book.card';
 
 @Component({
     selector: 'app-book-list',

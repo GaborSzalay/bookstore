@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { BookCard } from './book.card';
-import { SearchOutput } from './search.output';
+import { BookCard } from './model/book.card';
+import { SearchOutput } from './model/search.output';
 import { SearchHistoryService } from './services/search.history.service';
 
 @Component({
