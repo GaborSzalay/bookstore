@@ -2,19 +2,23 @@
     float: right;
     font-size: 26px;
     color: red;
-    margin-right: 18px;
-    margin-top: -12px;
+    margin-right: 6px;
+    margin-top: -19px;
     text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
 
     &::before {
         color: black;
-        margin-right: -38px;
+        margin-right: -29px;
         vertical-align: middle;
+        font-size: 50px;
+        font-weight: normal;
     }
 }
 
 .reverse {
-    color: lightsalmon;
+    color: red;
 
     &::before {
         color: white;

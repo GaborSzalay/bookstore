@@ -6,3 +6,10 @@
 .book-list-wrapper {
     overflow: hidden;
 }
+
+@media (max-width: 991px) {
+    .search-wrapper {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
