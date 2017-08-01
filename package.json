@@ -6,12 +6,13 @@
   "author": "Gabor Szalay <yaastreet@gmail.com> (https://github.com/GaborSzalay)",
   "homepage": "https://github.com/GaborSzalay/bookstore",
   "scripts": {
-    "ng": "node ./node_modules/@angular/cli/bin/ng",
-    "serve": "node ./node_modules/@angular/cli/bin/ng serve",
-    "build": "node ./node_modules/@angular/cli/bin/ng build",
-    "build-watch": "node ./node_modules/@angular/cli/bin/ng build -w",
-    "test": "node ./node_modules/@angular/cli/bin/ng test",
-    "lint": "node ./node_modules/@angular/cli/bin/ng lint",
+    "start": "ng serve",
+    "ng": "ng",
+    "serve": "ng serve",
+    "build": "ng build",
+    "build-watch": "ng build -w",
+    "test": "ng test",
+    "lint": "ng lint",
     "build-ci": "yarn run lint && yarn run test"
   },
   "dependencies": {
