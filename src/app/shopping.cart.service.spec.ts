@@ -93,4 +93,26 @@ describe('shoppingCartService', () => {
             expect(putCookieServiceSpy).toHaveBeenCalledWith('shoppingCart', 'WyJ3SGxEekhudDZ4MEMiXQ==');
         });
     });
+
+    describe('getShoppingCartSize', () => {
+        it('should get the size of the non-empty shopping cart', () => {
+            // GIVEN
+            getCookieServiceSpy.and.returnValue('WyJ3SGxEekhudDZ4MEMiLCJ0ZXN0IGlkIl0=');
+            // WHEN
+            const actualSize = shoppingCartService.getShoppingCartSize();
+            // THEN
+            expect(getCookieServiceSpy).toHaveBeenCalledWith('shoppingCart');
+            expect(actualSize).toEqual(2);
+        });
+
+        it('should get the size of the empty shopping cart', () => {
+            // GIVEN
+            getCookieServiceSpy.and.returnValue(undefined);
+            // WHEN
+            const actualSize = shoppingCartService.getShoppingCartSize();
+            // THEN
+            expect(getCookieServiceSpy).toHaveBeenCalledWith('shoppingCart');
+            expect(actualSize).toEqual(0);
+        });
+    });
 });
