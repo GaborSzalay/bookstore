@@ -19,21 +19,21 @@ describe('SearchHistoryService', () => {
 
     describe('storeLastSearchInput', () => {
         it('call cookie service with the encoded input', () => {
-            //GIVEN in beforeEach
-            //WHEN
+            // GIVEN in beforeEach
+            // WHEN
             searchHistoryService.storeLastSearchInput('test input');
-            //THEN
+            // THEN
             expect(putCookieServiceSpy).toHaveBeenCalledWith('lastSearch', 'test%20input');
         });
     });
 
     describe('retrieveLastSearchInput', () => {
         it('get search input from cookie service', () => {
-            //GIVEN
+            // GIVEN
             getCookieServiceSpy.and.returnValue('test input');
-            //WHEN
+            // WHEN
             const lastSearchInput = searchHistoryService.retrieveLastSearchInput();
-            //THEN
+            // THEN
             expect(getCookieServiceSpy).toHaveBeenCalledWith('lastSearch');
             expect(lastSearchInput).toEqual('test input')
         });
