@@ -6,7 +6,7 @@
     <ul class="cart-items">
         <li *ngFor="let bookDetail of bookDetails">
             <div>
-                <h1>{{bookDetail.title}}</h1>
+                <h1 routerLink="/detail/{{bookDetail.id}}">{{bookDetail.title}}</h1>
                 <span>{{bookDetail.authors}}</span>
                 <a class="btn btn-info" (click)="removeItem(bookDetail.id)">Remove</a>
             </div>
