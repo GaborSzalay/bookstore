@@ -2,6 +2,8 @@
     margin-top: 60px;
     background: rgba(255,255,255,0.9);
     padding: 15px;
+    margin-left: 25%;
+    width: 50%;
 
     span {
         margin-left: 30px;
@@ -24,8 +26,20 @@
 
 @media (max-width: 991px) {
     .shopping-cart {
+        margin-top: 10px;
+        margin-left: 10%;
+        width: 80%;
+
         a {
             top: 35px;
         }
+    }
+}
+
+@media (max-width: 639px) {
+    .shopping-cart {
+        margin-top: 0px;
+        margin-left: 0%;
+        width: 100%;
     }
 }
