@@ -1,4 +1,4 @@
-<div *ngIf="bookDetail" class="book-detail col-md-6 col-md-offset-3">
+<div *ngIf="bookDetail" class="book-detail">
     <nav>
         <app-back-button></app-back-button>
         <a class="btn btn-info" (click)="addToCart(bookDetail.id)">Add to shopping cart</a>
@@ -28,5 +28,5 @@
             </tr>
         </table>
     </div>
-    <img *ngIf="bookDetail.smallImage" src="{{bookDetail.smallImage}}" alt="{{bookDetail.title}}" class="col-md-6">
+    <img *ngIf="bookDetail.smallImage" src="{{bookDetail.smallImage}}" alt="{{bookDetail.title}}">
 </div>
