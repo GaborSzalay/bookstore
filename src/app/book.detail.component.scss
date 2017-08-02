@@ -1,9 +1,12 @@
+@import 'button-design';
+
 .book-detail {
     margin-top: 60px;
     background: rgba(255,255,255,0.9);
     padding: 15px;
     margin-left: 25%;
     width: 50%;
+    overflow: hidden;
 
     .title {
         margin-top: 34px;
@@ -13,6 +16,16 @@
 
     h4 {
         margin-top: 24px;
+    }
+
+    .main-content {
+        width: 50%;
+        float: left;
+    }
+
+    img {
+        width: 50%;
+        float: left;
     }
 }
 
