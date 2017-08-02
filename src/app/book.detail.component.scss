@@ -1,7 +1,28 @@
+@import 'button-design';
+
 .book-detail {
     margin-top: 60px;
     background: rgba(255,255,255,0.9);
     padding: 15px;
+    margin-left: 25%;
+    width: 50%;
+    overflow: hidden;
+
+    h1, h2, h3, h4 {
+        margin-bottom: 10px;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+        color: inherit;
+    }
+
+    h1 {
+        margin: .67em 0;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
 
     .title {
         margin-top: 34px;
@@ -12,10 +33,53 @@
     h4 {
         margin-top: 24px;
     }
+
+    .main-content {
+        width: 50%;
+        float: left;
+    }
+
+    img {
+        width: 50%;
+        float: left;
+    }
+
+    table {
+        text-align: center;
+        width: 100%;
+    
+        th {
+            font-weight: 500;
+            line-height: 1.1;
+            font-size: 20px;
+            padding-bottom: 13px;
+        }
+    }
 }
 
 @media (max-width: 991px) {
     .book-detail {
+        margin-top: 10px;
+        margin-left: 10%;
+        width: 80%;
+    }
+}
+
+@media (max-width: 639px) {
+    .book-detail {
         margin-top: 0px;
+        margin-left: 0%;
+        width: 100%;
+
+        .main-content {
+            width: 100%;
+            float: none;
+        }
+
+        img {
+            width: 100%;
+            float: none;
+            margin-top: 20px;
+        }
     }
 }

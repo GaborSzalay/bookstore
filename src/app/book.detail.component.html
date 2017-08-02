@@ -1,10 +1,10 @@
-<div *ngIf="bookDetail" class="book-detail col-md-6 col-md-offset-3">
+<div *ngIf="bookDetail" class="book-detail">
     <nav>
         <app-back-button></app-back-button>
         <a class="btn btn-info" (click)="addToCart(bookDetail.id)">Add to shopping cart</a>
         <app-shopping-cart-icon [refreshShoppingCartIcon]="refreshShoppingCartIcon"></app-shopping-cart-icon>
     </nav>
-    <div class="col-md-6">
+    <div class="main-content">
         <h1 class="title">{{bookDetail.title}}</h1>
         <span class="subtitle">{{bookDetail.subtitle}}</span>
 
@@ -17,11 +17,16 @@
 
         <h3 *ngIf="bookDetail.description">Description</h3>
         <p>{{bookDetail.description}}</p>
-
-        <h4 class="col-md-6 col-sm-6 col-xs-6">Publisher</h4>
-        <h4 class="col-md-6 col-sm-6 col-xs-6">Page count</h4>
-        <span class="col-md-6 col-sm-6 col-xs-6">{{bookDetail.publisher}}</span>
-        <span class="col-md-6 col-sm-6 col-xs-6">{{bookDetail.pageCount}}</span>
+        <table>
+            <tr>
+                <th>Publisher</th>
+                <th>Page count</th> 
+            </tr>
+            <tr>
+                <td>{{bookDetail.publisher}}</td>
+                <td>{{bookDetail.pageCount}}</td> 
+            </tr>
+        </table>
     </div>
-    <img *ngIf="bookDetail.smallImage" src="{{bookDetail.smallImage}}" alt="{{bookDetail.title}}" class="col-md-6">
+    <img *ngIf="bookDetail.smallImage" src="{{bookDetail.smallImage}}" alt="{{bookDetail.title}}">
 </div>
